@@ -1,4 +1,8 @@
-export interface Car {
+interface IObjectKeys {
+  [key: string]: string | undefined | boolean;
+}
+
+export interface Car extends IObjectKeys{
   brand?: string;
   model?: string;
   km?: string;

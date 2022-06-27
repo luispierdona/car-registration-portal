@@ -1,0 +1,30 @@
+<mat-card class="mat-elevation-z4">
+  <mat-card-header>
+    <mat-card-title>
+      {{car.brand}} {{car.model}}
+    </mat-card-title>
+  </mat-card-header>
+
+  <div class="divImg">
+    <ng-container [ngTemplateOutlet]="car?.brand === 'BMW' ? BMW : MERCEDES">
+    </ng-container>
+  </div>
+
+  <mat-card-content>
+    <p>
+      {{ 'Status: ' + car.year + ' | ' + 'Species: ' + car.km }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions fxLayoutAlign="center center">
+    <!-- (click)="viewInfo()" -->
+    <button mat-raised-button color="primary">{{ 'View Information'}}</button>
+  </mat-card-actions>
+</mat-card>
+
+<ng-template #BMW>
+  <img mat-card-image src="assets/BMW_logo.svg" alt="BMW Logo">
+</ng-template>
+
+<ng-template #MERCEDES>
+  <img mat-card-image src="assets/Mercedes_logo.svg" alt="MERCEDES Logo">
+</ng-template>

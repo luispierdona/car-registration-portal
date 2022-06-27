@@ -2,12 +2,29 @@
 
 <div class="content" fxLayoutAlign="center center">
 
-  <!-- Cards -->
   <div fxLayout="row wrap" fxLayoutGap="16px grid" style="max-width: 1400px">
+
+    <div fxFlex="100%">
+      <form name="searchForm" [formGroup]="searchForm" fxFlex fxLayoutAlign="center center">
+        <mat-form-field appearance="outline">
+          <mat-label> {{ 'Search by' }} </mat-label>
+          <mat-select formControlName="carKeys" (selectionChange)="optionSelected($event)">
+            <mat-option [value]="null">none</mat-option>
+            <mat-option *ngFor="let key of carKeys" [value]="key">
+              {{ key }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> {{ 'Search' }} </mat-label>
+          <input matInput formControlName="searchInput" (keyup)="filterCars()">
+        </mat-form-field>
+      </form>
+    </div>
+
     <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="25%"
-      *ngFor="let item of cars; index as i">
-      {{item.brand}}
-      <!-- <app-dash-card [character]="item"></app-dash-card> -->
+      *ngFor="let item of filteredValues; index as i">
+      <app-dash-card [car]="item"></app-dash-card>
     </div>
 
   </div>
