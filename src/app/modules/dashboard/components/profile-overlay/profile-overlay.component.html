@@ -1,0 +1,54 @@
+<div fxLayout="row wrap">
+
+  <mat-card class="mat-elevation-z4" fxFlex="100%">
+    <mat-card-title fxFlex="100%" fxLayoutAlign="center center">
+      {{profile.name}} {{profile.surname}}
+    </mat-card-title>
+  </mat-card>
+
+  <mat-form-field appearance="outline" fxFlex="50%">
+    <mat-label>{{ 'Has garage' }}</mat-label>
+    <input matInput [value]="profile?.has_garage" readonly>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" fxFlex="50%">
+    <mat-label>{{ 'Locable Garage' }}</mat-label>
+    <input matInput [value]="profile?.locable_garage" readonly>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" fxFlex="50%">
+    <mat-label>{{ 'Gender' }}</mat-label>
+    <input matInput [value]="profile?.gender" readonly>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" fxFlex="50%">
+    <mat-label>{{ 'Birthday' }}</mat-label>
+    <input matInput [value]="profile?.birthday" readonly>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" fxFlex="50%">
+    <mat-label>{{ 'Licance Date' }}</mat-label>
+    <input matInput [value]="profile?.licance_date" readonly>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" fxFlex="50%">
+    <mat-label>{{ 'Licance Country' }}</mat-label>
+    <input matInput [value]="profile?.licance_country" readonly>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" fxFlex="50%">
+    <mat-label>{{ 'Marital Status' }}</mat-label>
+    <input matInput [value]="profile?.marital_status" readonly>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" fxFlex="50%">
+    <mat-label>{{ 'Job' }}</mat-label>
+    <input matInput [value]="profile?.job" readonly>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" fxFlex="50%">
+    <mat-label>{{ 'Zip Code' }}</mat-label>
+    <input matInput [value]="profile?.zip_code" readonly>
+  </mat-form-field>
+
+</div>

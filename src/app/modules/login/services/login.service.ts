@@ -15,14 +15,16 @@ export class LoginService {
 
   login(user: User) {
     this.userConnected = user;
-    console.log(this.userConnected);
-    // Redirect to Dashboard Page
     this.router.navigate(['/dashboard']);
   }
 
   logout() {
     this.userConnected = {}
     this.router.navigate(['/login']);
+  }
+
+  getProfile() {
+    return this.userConnected;
   }
 
   // Load users from assets/users-list.json with a Get request and catch any errors

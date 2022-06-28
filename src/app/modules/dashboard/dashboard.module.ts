@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ProfileOverlayComponent } from './components/profile-overlay/profile-overlay.component';
 
 
 const routes: Routes = [
@@ -58,8 +59,13 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
   ],
-  declarations: [DashboardComponent, ToolbarComponent, DashCardComponent, AddCarOverlayComponent],
-  exports: [AddCarOverlayComponent],
+  declarations: [
+    DashboardComponent,
+    ToolbarComponent,
+    DashCardComponent,
+    AddCarOverlayComponent,
+    ProfileOverlayComponent],
+  exports: [AddCarOverlayComponent, ProfileOverlayComponent],
   providers: [MatDatepickerModule],
 })
 export class DashboardPageModule {}
