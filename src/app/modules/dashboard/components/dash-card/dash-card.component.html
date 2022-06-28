@@ -12,13 +12,27 @@
 
   <mat-card-content>
     <p>
-      {{ 'Status: ' + car.year + ' | ' + 'Species: ' + car.km }}
+      <b>{{ 'Year: ' }}</b>
+      <span>{{ car.year }}</span>
+      <span>{{ ' | ' }}</span>
+      <b>{{ 'KM: ' }}</b>
+      <span>{{ car.km }}</span>
+    </p>
+    <p>
+      <b>{{ 'Shift: ' }}</b>
+      <span>{{ car.shift }}</span>
+      <span>{{ ' | ' }}</span>
+      <b>{{ 'Color: ' }}</b>
+      <span>{{ car.color }}</span>
+    </p>
+    <p>
+      <b>{{ 'Fuel: ' }}</b>
+      <span>{{ car.fuel }}</span>
+      <span>{{ ' | ' }}</span>
+      <b>{{ 'Type: ' }}</b>
+      <span>{{ car.car_type }}</span>
     </p>
   </mat-card-content>
-  <mat-card-actions fxLayoutAlign="center center">
-    <!-- (click)="viewInfo()" -->
-    <button mat-raised-button color="primary">{{ 'View Information'}}</button>
-  </mat-card-actions>
 </mat-card>
 
 <ng-template #BMW>

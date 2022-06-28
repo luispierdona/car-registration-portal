@@ -14,11 +14,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DashCardComponent } from './components/dash-card/dash-card.component';
+import { AddCarOverlayComponent } from './components/add-car-overlay/add-car-overlay.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 const routes: Routes = [
@@ -50,8 +52,14 @@ const routes: Routes = [
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
-  declarations: [DashboardComponent, ToolbarComponent, DashCardComponent]
+  declarations: [DashboardComponent, ToolbarComponent, DashCardComponent, AddCarOverlayComponent],
+  exports: [AddCarOverlayComponent],
+  providers: [MatDatepickerModule],
 })
 export class DashboardPageModule {}

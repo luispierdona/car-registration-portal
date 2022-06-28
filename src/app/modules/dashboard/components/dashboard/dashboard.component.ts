@@ -4,6 +4,8 @@ import { MatSelectChange } from '@angular/material/select';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Car } from '../../models/cars.models';
 import { DashboardService } from '../../services/dashboard.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddCarOverlayComponent } from '../add-car-overlay/add-car-overlay.component';
 
 
 @Component({
@@ -22,7 +24,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     private dashboardService: DashboardService,
     private _snackBar: MatSnackBar,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private dialog: MatDialog,
   ) {
     this.searchForm = this._formBuilder.group({
       carKeys: new FormControl(null, [Validators.required]),
@@ -84,5 +87,17 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  addCar() {
+    this.dialog.open(AddCarOverlayComponent, {
+      width: '900px',
+    });
+
+    // when closed, get the new cars
+    this.dialog.afterAllClosed.subscribe(() => {
+      this.dashboardService.getCarsToAdd().forEach(element => {
+        this.filteredValues.unshift(element);
+      });
+    });
+  }
 
 }

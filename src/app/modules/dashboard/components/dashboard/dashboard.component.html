@@ -4,8 +4,8 @@
 
   <div fxLayout="row wrap" fxLayoutGap="16px grid" style="max-width: 1400px">
     <!-- Search Form -->
-    <div fxFlex="100%">
-      <form name="searchForm" [formGroup]="searchForm" fxFlex fxLayoutAlign="center center">
+    <div fxFlex="100%" fxLayoutAlign="center center">
+      <form name="searchForm" [formGroup]="searchForm" fxFlex>
         <mat-form-field appearance="outline">
           <mat-label> {{ 'Search by' }} </mat-label>
           <mat-select formControlName="carKeys" (selectionChange)="optionSelected($event)">
@@ -20,6 +20,10 @@
           <input matInput formControlName="searchInput" (keyup)="filterCars()">
         </mat-form-field>
       </form>
+
+      <div align="end" fxFlex>
+        <button mat-raised-button color="primary" (click)="addCar()">{{ 'ADD CAR' }}</button>
+      </div>
     </div>
 
     <!-- Cards -->

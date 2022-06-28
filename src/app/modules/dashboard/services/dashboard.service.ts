@@ -8,6 +8,8 @@ import { Car } from '../models/cars.models';
 })
 export class DashboardService {
 
+  carsToAdd: Car[] = [];
+
   constructor(private http: HttpClient) { }
 
   // Load cars from assets/cars-list.json with a Get request and catch any errors
@@ -16,6 +18,14 @@ export class DashboardService {
     .pipe(
       catchError(this.handleError)
     );
+  }
+
+  addCar(car: Car) {
+    this.carsToAdd.unshift(car);
+  }
+
+  getCarsToAdd(): Car[] {
+    return this.carsToAdd;
   }
 
   private handleError(error: HttpErrorResponse) {
