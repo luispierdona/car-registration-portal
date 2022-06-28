@@ -3,7 +3,7 @@
 <div class="content" fxLayoutAlign="center center">
 
   <div fxLayout="row wrap" fxLayoutGap="16px grid" style="max-width: 1400px">
-
+    <!-- Search Form -->
     <div fxFlex="100%">
       <form name="searchForm" [formGroup]="searchForm" fxFlex fxLayoutAlign="center center">
         <mat-form-field appearance="outline">
@@ -22,11 +22,11 @@
       </form>
     </div>
 
+    <!-- Cards -->
     <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="25%"
       *ngFor="let item of filteredValues; index as i">
       <app-dash-card [car]="item"></app-dash-card>
     </div>
-
   </div>
 
 </div>

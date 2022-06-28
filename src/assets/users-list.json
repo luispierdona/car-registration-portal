@@ -1,0 +1,28 @@
+[
+  {
+    "name": "candidate",
+    "surname": "challenge",
+    "has_garage": true,
+    "locable_garage": true,
+    "gender": "famale",
+    "birthday": "09.04.1994",
+    "licance_date": "04.04.2004",
+    "licance_country": "Germany",
+    "marital_status": "single",
+    "job": 1,
+    "zip_code": 13355
+  },
+  {
+    "name": "candidate2",
+    "surname": "challenge1",
+    "has_garage": true,
+    "locable_garage": true,
+    "gender": "famale",
+    "birthday": "09.04.1994",
+    "licance_date": "04.04.2004",
+    "licance_country": "Germany",
+    "marital_status": "single",
+    "job": 1,
+    "zip_code": 13357
+  }
+]

@@ -7,13 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
-import { DashboardComponent } from './modules/dashboard/components/dashboard/dashboard.component';
-import { LoginComponent } from './modules/login/components/login/login.component';
 import { DashboardService } from './modules/dashboard/services/dashboard.service';
-import { DashCardComponent } from './modules/dashboard/components/dash-card/dash-card.component';
+import { DashboardPageModule } from './modules/dashboard/dashboard.module';
+import { LoginService } from './modules/login/services/login.service';
+import { LoginPageModule } from './modules/login/login.module';
 
-import { ToolbarComponent } from './modules/dashboard/components/toolbar/toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -22,17 +22,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    LoginComponent,
-    ToolbarComponent,
-    DashCardComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -52,9 +50,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatCardModule,
     MatInputModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatMenuModule,
+    DashboardPageModule,
+    LoginPageModule,
   ],
-  providers: [DashboardService],
+  providers: [DashboardService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
