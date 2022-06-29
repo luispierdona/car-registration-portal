@@ -1,80 +1,120 @@
 <mat-stepper #stepper>
-  <mat-step [stepControl]="firstFormGroup" errorMessage="Data is required.">
-    <form [formGroup]="firstFormGroup" fxFlex="100%" fxLayoutAlign="center center">
+  <form [formGroup]="firstFormGroup">
+    <mat-step [stepControl]="firstFormGroup" errorMessage="Data is required.">
       <ng-template matStepLabel>{{ 'Brand & Model' }}</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>{{ 'Brand' }}</mat-label>
-        <input matInput formControlName="brand" required>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>{{ 'Model' }}</mat-label>
-        <input matInput formControlName="model" required>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-select placeholder="Electric?" formControlName="e_car">
-          <mat-option [value]="true">{{ 'Yes' }}</mat-option>
-          <mat-option [value]="false">{{ 'No' }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </form>
-    <div align="end">
-      <button mat-raised-button color="primary" matStepperNext
-        [disabled]="!firstFormGroup.valid">{{ 'NEXT' }}</button>
-    </div>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" errorMessage="Data is required.">
-    <form [formGroup]="secondFormGroup" fxFlex="100%" fxLayoutAlign="center center">
-      <ng-template matStepLabel>{{ 'KM | Year | Shift' }}</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>{{ 'KM' }}</mat-label>
-        <input matInput formControlName="km" type="number" required>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>{{ 'Year' }}</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="year">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-select placeholder="Shift?" formControlName="shift">
-          <mat-option value="manual">{{ 'Manual' }}</mat-option>
-          <mat-option value="automatic">{{ 'Automatic' }}</mat-option>
-          <mat-option value="secuencial">{{ 'Secuencial' }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </form>
-    <div align="end">
-      <button mat-button matStepperPrevious color="accent">Back</button>
-      <button mat-raised-button matStepperNext color="primary"
-        [disabled]="!secondFormGroup.valid">{{ 'NEXT' }}</button>
-    </div>
-  </mat-step>
-  <mat-step>
-    <form [formGroup]="thirdFormGroup" fxFlex="100%" fxLayoutAlign="center center">
-      <ng-template matStepLabel>{{ 'Fuel | Color | Type' }}</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>{{ 'Fuel' }}</mat-label>
-        <input matInput formControlName="fuel" required>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>{{ 'Color' }}</mat-label>
-        <input matInput formControlName="color" required>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>{{ 'Type' }}</mat-label>
-        <input matInput formControlName="car_type" required>
-      </mat-form-field>
-    </form>
-    <div fxFlex="100%">
-      <div fxFlex="70%">
-        <button mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>
+      <div fxLayout="row wrap" fxLayoutAlign="center center">
+        <mat-form-field appearance="fill" fxFlex="30%">
+          <mat-label>{{ 'Brand' }}</mat-label>
+          <input matInput formControlName="brand" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="30%">
+          <mat-label>{{ 'Model' }}</mat-label>
+          <input matInput formControlName="model" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="30%">
+          <mat-select placeholder="Electric?" formControlName="e_car">
+            <mat-option [value]="true">{{ 'Yes' }}</mat-option>
+            <mat-option [value]="false">{{ 'No' }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="30%">
+          <mat-label>{{ 'KM' }}</mat-label>
+          <input matInput formControlName="km" type="number" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="30%">
+          <mat-label>{{ 'Year' }}</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="year">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="30%">
+          <mat-select placeholder="Shift?" formControlName="shift">
+            <mat-option value="manual">{{ 'Manual' }}</mat-option>
+            <mat-option value="automatic">{{ 'Automatic' }}</mat-option>
+            <mat-option value="secuencial">{{ 'Secuencial' }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="30%">
+          <mat-label>{{ 'Fuel' }}</mat-label>
+          <input matInput formControlName="fuel" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="30%">
+          <mat-label>{{ 'Color' }}</mat-label>
+          <input matInput formControlName="color" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="30%">
+          <mat-label>{{ 'Type' }}</mat-label>
+          <input matInput formControlName="car_type" required>
+        </mat-form-field>
       </div>
-      <div fxFlex="30%" align="end">
+      <div align="end">
+        <button mat-raised-button color="primary" matStepperNext [disabled]="!firstFormGroup.valid">{{ 'NEXT'
+          }}</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>{{ 'Damage record' }}</ng-template>
+      <div fxLayout="row" formArrayName="damageForm">
+        <div fxLayout="column" fxFlex="100%">
+          <div fxLayout="row" *ngFor="let item of damageForm.controls; let i=index">
+            <div fxLayout="row" fxLayout="center center" fxFlex="100%" [formGroupName]="i">
+
+              <mat-form-field appearance="outline" fxFlex="50%" class="pr-4">
+                <mat-label>{{ 'Problem Piece' }}</mat-label>
+                <mat-select formControlName="problemPiece">
+                  <mat-option *ngFor="let piece of pieceList" [value]="piece">
+                    {{ piece }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div fxLayout="row" fxLayoutAlign="start center" fxFlex="48%" class="pl-4">
+                <mat-form-field appearance="outline" fxFlex="70%">
+                  <mat-label>{{ 'Cost $: ' }}</mat-label>
+                  <input matInput formControlName="cost" type="number" (keyup)="calculateDamage()">
+                </mat-form-field>
+                <div fxFlex="25" class="pl-4">
+                  <button mat-icon-button (click)="deleteItemDamageForm(i)" *ngIf="damageForm.controls.length > 1">
+                    <mat-icon color="warn">delete</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row">
+            <button mat-raised-button color="primary" (click)="addItemDamageForm()">
+              {{ '+' }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div align="end">
+        <p>
+          <mat-label style="float: left">{{ 'Total damage amount $: ' + accumulateDamage}}</mat-label>
+        </p>
         <button mat-button matStepperPrevious color="accent">Back</button>
-        <button mat-raised-button matStepperNext color="primary"
-          [disabled]="!thirdFormGroup.valid" (click)="save()">{{ 'SAVE' }}</button>
+        <button mat-raised-button matStepperNext color="primary">{{ 'NEXT' }}</button>
       </div>
+    </mat-step>
+  </form>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <p>
+      <mat-label>{{ 'Total damage amount $: ' + accumulateDamage}}</mat-label>
+    </p>
+    <p>
+      <mat-label>{{ 'Base Price $: ' + this.firstFormGroup.controls['price']?.value}}</mat-label>
+    </p>
+    <p>
+      <mat-label>{{ 'Total Price $: ' + (this.firstFormGroup.controls['price']?.value - accumulateDamage)}}</mat-label>
+    </p>
+    <div align="end">
+      <button mat-raised-button color="warn" (click)="stepper.reset()" style="float: left">Reset</button>
+      <button mat-button matStepperPrevious color="accent">Back</button>
+      <button mat-raised-button matStepperNext color="primary" (click)="save()" [disabled]="!firstFormGroup.valid">{{
+        'SAVE' }}</button>
     </div>
   </mat-step>
 </mat-stepper>
